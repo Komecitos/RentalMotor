@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Basis folder proyek
+RewriteBase /RentalMotor/
+
+# Jika file atau folder tidak ditemukan, arahkan ke index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Ambil path setelah domain dan kirim ke index.php sebagai query string
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
